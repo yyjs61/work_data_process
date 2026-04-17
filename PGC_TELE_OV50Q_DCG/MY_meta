@@ -1,0 +1,102 @@
+import glob, os, numpy as np
+import yaml
+
+ROOT_PATH = './ROOT_PATH.txt'
+with open(ROOT_PATH, 'r') as file:
+    ROOT = file.readline().strip()
+
+RECEIVED = os.path.join(ROOT, 'received')
+UNPACK_RAW = os.path.join(ROOT, 'unpack_raw')
+YAML_OUTPUT = os.path.join(ROOT, 'yamls_eachFrame')
+
+EXAMPLE_META = '''
+Black_level: 1024.0
+White_level: 16383.0
+bayer_pattern: RGGB
+ccm_matrix: [[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]
+lux_index: 300.0
+luxid: 300.0
+'''
+
+BAYER_PATTERN = 'RGGB'
+BP = 64.0
+WP = 1023.0
+W = 3840
+H = 2160
+
+
+def parseLine(meta):
+    with open(meta, 'r') as fo:
+        line = fo.readline().strip()
+        cct = int(line.split('CCT: ')[1].split(' ')[0])
+        r_gain = float(line.split('RGain: ')[1].split(' ')[0])
+        b_gain = float(line.split('BGain: ')[1].split(' ')[0])
+    return [cct, r_gain, b_gain]
+
+
+def parseLine2(meta):
+    with open(meta, 'r') as fo:
+        line = fo.readline().strip()
+        expotime = int(line.split('exposureTime: ')[1].split(' ')[0])
+        SensorAGain = min(float(line.split('sensitivity: ')[1].split(' ')[0]) / 100, 5.7)
+        isp_gain = float(line.split('ISPDGain: ')[1].split(' ')[0])
+    return [expotime, SensorAGain, isp_gain]
+
+
+def parseMeta(meta, meta2):
+    result = {}
+    result['expotime'] = parseLine2(meta2)[0]
+    result['cct'] = parseLine(meta)[0]
+    result['SensorAGain'] = parseLine2(meta2)[1]
+    result['SensorDGain'] = 1.0
+    result['sensorgain'] = result['SensorAGain']
+    result['gain'] = result['SensorAGain']
+    result['isp_gain'] = parseLine2(meta2)[2]
+    result['drc_gain'] = 1.0
+    result['iso'] = int(result['SensorAGain'] * 100)
+    result['r_gain'] = parseLine(meta)[1]
+    result['b_gain'] = parseLine(meta)[2]
+    return result
+
+
+def find_meta_files(scene_id, req_id):
+    """
+    递归查找对应 req_id 的 awb_output 和 sensor_info txt 文件
+    返回路径，如果找不到返回 None
+    """
+    scene_path = os.path.join(RECEIVED, scene_id)
+    meta_candidates = glob.glob(os.path.join(scene_path, "**", f"awb_output*_req*[{req_id}]*.txt"), recursive=True)
+    meta2_candidates = glob.glob(os.path.join(scene_path, "**", f"sensor_info*_req*[{req_id}]*.txt"), recursive=True)
+
+    meta = meta_candidates[0] if meta_candidates else None
+    meta2 = meta2_candidates[0] if meta2_candidates else None
+    return meta, meta2
+
+
+# 遍历每个 scene
+scenes = sorted(os.listdir(UNPACK_RAW))
+for scene in scenes:
+    scene_folder = os.path.join(YAML_OUTPUT, os.path.basename(scene))
+    os.makedirs(scene_folder, exist_ok=True)
+
+    files = sorted(glob.glob(os.path.join(UNPACK_RAW, scene, "*.raw")))
+
+    for i, file in enumerate(files):
+        try:
+            req_id = file.split("req[")[1].split("]")[0]
+        except IndexError:
+            print(f"[WARN] 文件名无法提取 req_id: {file}")
+            continue
+
+        scene_id = scene.split("__")[1]  # scene_id 对应 RECEIVED 子目录
+        meta, meta2 = find_meta_files(scene_id, req_id)
+
+        if meta is None or meta2 is None:
+            print(f"[WARN] 找不到对应 meta 文件, 跳过 {file}")
+            continue
+
+        yaml_file = os.path.join(scene_folder, f"{str(i).zfill(3)}.yaml")
+        with open(yaml_file, 'w') as fo:
+            fo.write(EXAMPLE_META)
+            meta_result = parseMeta(meta, meta2)
+            yaml.safe_dump(meta_result, stream=fo, default_flow_style=False)
