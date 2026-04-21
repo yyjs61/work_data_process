@@ -1,0 +1,39 @@
+from concurrent.futures import ThreadPoolExecutor
+import subprocess, os, time
+
+# ROOT_PATH = './ROOT_PATH.txt'
+# with open(ROOT_PATH,'r') as file:
+#     ROOT = file.readline().strip()
+# ROOT = '/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/'
+# ROOT = '/home/user/afs_data/LeeSin_Xie/data/TestData/'
+ROOT = r'D:\Data\DJI_OV50X\20260420\20260417_portrait/'
+
+
+UNPACK_RAW = ROOT + 'unpack_raw'
+scenes = sorted(os.listdir(UNPACK_RAW))
+
+def run_scene(scene):
+    cmd = f'python DJI/DJi_portrait/subp_VisualizeSensorRawAsRGB.py {scene}'
+    print(scene)
+    return subprocess.run(cmd, shell=True)
+
+with ThreadPoolExecutor(max_workers=3) as executor:
+    executor.map(run_scene, scenes)
+
+    import cv2, yaml, glob, os, sys, subprocess, numpy as np
+
+
+# ROOT_PATH = './ROOT_PATH.txt'
+# with open(ROOT_PATH,'r') as file:
+#     ROOT = file.readline().strip()
+
+# ROOT = '/data/OVH9000_DCG_20260302_night/'
+
+# UNPACK_RAW = ROOT + 'unpack_raw/'
+# YAML_DATA = ROOT + 'yamls_eachFrame/'
+
+# scenes = sorted(os.listdir(UNPACK_RAW))
+# for scene in scenes:
+
+#     subprocess.run(f'python data_process_demo/HONOR_DCG/subp_VisualizeSensorRawAsRGB.py {scene} &', shell=True)
+

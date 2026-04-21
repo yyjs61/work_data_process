@@ -4,9 +4,9 @@ import glob
 import natsort
 
 # ==================== 配置区域 ====================
-ROOT = r"D:\Data\20260417\honor\received"
-CPATH = r"\inner_ISO902_10ms"
-FILE_PATTERN = "*.mp4"  # 可修改为 "*.mp4" 或其他
+ROOT = r"D:\Data\20260420"
+CPATH = r""
+FILE_PATTERN = "*.raw"  # 可修改为 "*.mp4" 或其他
 # ==================== 配置区域结束 ====================
 
 def natural_sort(items):
@@ -387,6 +387,8 @@ def replace_dot_in_files(root_path):
     
     print(f"功能 7 完成。共替换 {count_replaced} 个文件名。")
 
+
+
 def main(functions=None):
     """
     主函数 - 接口形式
@@ -454,4 +456,4 @@ if __name__ == "__main__":
     # main([6, 7])
     
     # 示例 4：执行多个功能
-    main([1])
+    main([5])

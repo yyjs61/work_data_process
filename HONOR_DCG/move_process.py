@@ -4,7 +4,8 @@ import os, glob, natsort, shutil, numpy as np
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
 
-ROOT = '/data/OVH9000_DCG_20260326_portrait/'
+# ROOT = '/data/OVH9000_DCG_20260326_portrait/'
+ROOT = r'D:\Data\20260415\honor\OVH9000_DCG_20260415_lab\honor'
 
 RECEIVED = ROOT + 'received/'
 UNPACK_RAW = ROOT + 'unpack_raw/'

@@ -5,7 +5,10 @@ import glob, os, numpy as np
 #     ROOT = file.readline().strip()
 
 # ROOT = '/home/user/afs_data/wang/hnr_wide_ov52a_dcg_testdate_20260408/'
-ROOT = '/home/user/afs_data/LeeSin_Xie/Quad_dag_20260409/'
+# ROOT = r'D:\Data\DJI_OV50X\20260420\20260417_portrait/'
+ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_dcg_lofic/"
+
+
 
 if ROOT[-1] == '/':
   DATASET_NAME = os.path.basename(ROOT[:-1])
@@ -32,8 +35,8 @@ if LUSTER_ROOT[-1] == '/':
 # s3 = 's3://isp_projectdata/VideoSupernightData/HNR_RP_OV52a'
 # s3 = 's3://isp_projectdata/Calibration/_CalibrationLSC/OBSBOT_SC5A0XS'
 # s3 = 's3://isp_share/wangyuemei/test_data'
-s3 = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X'
 
+s3 = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X'
 unpack_raw = ROOT + 'unpack_raw'
 os.makedirs(ID_FOLDER, exist_ok=True)
 scenes = sorted(os.listdir(unpack_raw))
