@@ -1,30 +1,24 @@
 import cv2, yaml, glob, os, sys, numpy as np
 
 
-# ROOT_PATH = './ROOT_PATH.txt'
-# with open(ROOT_PATH,'r') as file:
-#     ROOT = file.readline().strip()
-
-# ROOT = '/data/OVH9000_DCG_20260326_portrait/'
-# ROOT = r'D:\Data\20260423\honor/'
-ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
+ROOT = r'C:\Users\admin.DESKTOP-QNCO006\Desktop\IAC4\IAC4_EVT2p3_QUAD_Wide_20260420/'
 
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
 
 
-H = 2304
-# H = 3600
+# H = 4912
+# W = 8192
+H = 4096
 W = 4096
+
 
 BAYER_PATTERN = 'RGGB'
 
 
-WP = 16383
+WP = 1023
 BP = 64
 
-# WP = 4092
-# BP = 256
 
 OUTPUT_DIR = 'jpg'
 OUTPUT_TYPE = 'jpg'
@@ -32,7 +26,7 @@ OUTPUT_TYPE = 'jpg'
 # PSEUDO_ISP_GAIN = 1
 # AWB_R_GAIN = 2.0
 # AWB_B_GAIN = 1.8
-GAMMA = 2.8
+GAMMA = 2.4
 
 
 DEMOSAIC_DICT = {
@@ -90,14 +84,6 @@ def CHW2RGB(CHW):
         r, g0, g1, b = CHW
         g = (g0 + g1)/2.0
         return np.stack([b, g, r], axis=-1)
-    if BAYER_PATTERN == 'GRBG':
-        g0, r, b, g1 = CHW
-        g = (g0 + g1)/2.0
-        return np.stack([b, g, r], axis=-1)
-    if BAYER_PATTERN == 'BGGR':
-        b, g0, g1, r = CHW
-        g = (g0 + g1)/2.0
-        return np.stack([b, g, r], axis=-1)
 
 
 # scenes = sorted(os.listdir(UNPACK_RAW))
@@ -106,25 +92,26 @@ scene = sys.argv[1]
 os.makedirs(os.path.join(os.path.join(ROOT, OUTPUT_DIR), scene), exist_ok=True)
 for index, file in enumerate(sorted(glob.glob(os.path.join(UNPACK_RAW, scene, '*.raw')))):
     img = np.fromfile(file, dtype='uint16').reshape([H, W]).astype('float')
-    # img = QuadBayer2CHW(img)
-    # img = HEX2CHW(img)
-    # img = CHW2RGB(img)
+
+    # 如果是quad 则将下面两行解注释
+    img = QuadBayer2CHW(img)
+    img = CHW2RGB(img)
     img = (img - BP) / (WP - BP)
     img = img.clip(0, 1)
-    # img = awb(img)
-    img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
-    img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
+
+
+    # 下面两行是bayer的
+    # img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
+    # img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
 
     yaml_path = os.path.join(YAML_DATA,scene,str(index).zfill(3) + '.yaml')  
     with open(yaml_path,'r',encoding='utf-8') as file_yaml:
         yaml_content = yaml.safe_load(file_yaml)
     awb_b_gain = yaml_content['b_gain']
     awb_r_gain = yaml_content['r_gain']
-
     img[..., 0] *= awb_b_gain
     img[..., 2] *= awb_r_gain
     img *= yaml_content['isp_gain']
-    img *= 1.0
     img = img ** (1 / GAMMA)
     img = (img.clip(0, 1) * 255).astype('uint8')
     cv2.imwrite(os.path.join(ROOT, OUTPUT_DIR, scene, os.path.basename(file).replace('.raw', f'.{OUTPUT_TYPE}')), img)

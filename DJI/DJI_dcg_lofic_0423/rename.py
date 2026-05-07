@@ -3,8 +3,7 @@ import glob
 import natsort
 # ROOT = '/home/user/afs_data/0327_wide_ov52a_dagquad_testdata/unpack_raw/'
 # ROOT = '/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/unpack_raw/'
-# ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/unpack_raw/"
-ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/unpack_raw/"
+ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_portrait/unpack_raw/"
 
 # 注意下面 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -27,8 +26,7 @@ import glob
 import natsort
 
 # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/unpack_raw"
-# ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/unpack_raw/"
-ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/unpack_raw/"
+ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_portrait/unpack_raw/"
 
 scenes = natsort.natsorted(os.listdir(ROOT))
 

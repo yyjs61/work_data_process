@@ -4,7 +4,8 @@ import numpy as np
 # ROOT = "/home/user/afs_data/wang/0330_hnr_tele_hp3_quad_artifactTestData/"
 # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/"
 # ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/"
-ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/"
+# ROOT = r"D:\Data\2026_05\07\V3_imx06c_20260507/"
+ROOT = r"D:\Data\2026_05\07\add_/"
 
 SRC_ROOT = os.path.join(ROOT, "received")
 DST_ROOT = os.path.join(ROOT, "unpack_raw")
@@ -36,7 +37,11 @@ for scene in sorted(os.listdir(SRC_ROOT)):
     
     dst_scene_dir = os.path.join(DST_ROOT, scene)
     os.makedirs(dst_scene_dir, exist_ok=True)
-    
+
+    if(len(os.listdir(dst_scene_dir)) > 0):
+        print(f"{dst_scene_dir} already processed")
+        continue
+
     # 处理场景文件夹下的 raw 文件
     for fname in sorted(os.listdir(src_scene_path)):
         if not fname.endswith('.raw'):

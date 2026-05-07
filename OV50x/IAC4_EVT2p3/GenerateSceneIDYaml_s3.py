@@ -4,19 +4,13 @@ import glob, os, numpy as np
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
 
-# ROOT = '/home/user/afs_data/wang/hnr_wide_ov52a_dcg_testdate_20260408/'
-# ROOT = r'D:\Data\DJI_OV50X\20260420\20260417_portrait/'
-# ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_dcg_lofic/"
-# ROOT = r"D:\Data\DJI_OV50X\20260423\20260423_Simulation_materials/"
-# ROOT = r'D:\Data\20260423\VAI_OVH9000_Magic7Pro_20260423/'
-# ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
-# ROOT = r'D:\Data\2026_05\06\V3_imx06c_20260506/'
-# ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\quad_day_20260506/"
-ROOT = r'D:\Data\2026_05\07\V3_imx06c_20260507/'
-
+# ROOT = r'./IAC4_EVT2.3_QUAD_Wide_20260324/'
+    # 定义根目录（请根据实际路径修改）
+ROOT = r'C:\Users\admin.DESKTOP-QNCO006\Desktop\IAC4\IAC4_EVT2p3_QUAD_Wide_20260420/'
 
 if ROOT[-1] == '/':
   DATASET_NAME = os.path.basename(ROOT[:-1])
+
 
 RECEIVED = ROOT + 'received/'
 ID_FOLDER = ROOT + 'SceneIDYaml/' + DATASET_NAME + '/'
@@ -37,14 +31,10 @@ LUSTER_ROOT = ROOT
 if LUSTER_ROOT[-1] == '/':
     LUSTER_ROOT = LUSTER_ROOT[:-1]
 
-# s3 = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X'
-s3 = 's3://isp_projectdata/VideoSupernightData/V3_IMX06C'
+s3 = 's3://isp_projectdata/VideoSupernightData/IAC4'
 # s3 = 's3://isp_projectdata/VideoSupernightData/A500_Benchmark/aitone'
-# s3 = 's3://isp_projectdata/VideoSupernightData/VAI'
 # s3 = 's3://isp_projectdata/Calibration/_CalibrationLSC/OBSBOT_SC5A0XS'
-# s3 = 's3://isp_share/wangyuemei/test_data'
 
-# s3 = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X'
 unpack_raw = ROOT + 'unpack_raw'
 os.makedirs(ID_FOLDER, exist_ok=True)
 scenes = sorted(os.listdir(unpack_raw))

@@ -4,28 +4,32 @@ import subprocess, os, time
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
+# ROOT = '/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/'
+# ROOT = '/home/user/afs_data/LeeSin_Xie/data/TestData/'
+ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
 
-# ROOT = '/data/OVH9000_DCG_20260326_portrait/'
-# ROOT = r'D:\Data\20260423\honor/'
-ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
 
 UNPACK_RAW = ROOT + 'unpack_raw'
 scenes = sorted(os.listdir(UNPACK_RAW))
 
 def run_scene(scene):
-    cmd = f'python HONOR_DCG/subp_VisualizeSensorRawAsRGB.py {scene}'
+    cmd = f'python DJI/DJi_portrait/subp_VisualizeSensorRawAsRGB.py {scene}'
+    # print(scene)
     return subprocess.run(cmd, shell=True)
 
-with ThreadPoolExecutor(max_workers=3) as executor:
+with ThreadPoolExecutor(max_workers=1) as executor:
     executor.map(run_scene, scenes)
 
 
-#     import cv2, yaml, glob, os, sys, subprocess, numpy as np
+    # import cv2, yaml, glob, os, sys, subprocess, numpy as np
 
 
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
+
+# ROOT = '/data/OVH9000_DCG_20260302_night/'
+
 # UNPACK_RAW = ROOT + 'unpack_raw/'
 # YAML_DATA = ROOT + 'yamls_eachFrame/'
 

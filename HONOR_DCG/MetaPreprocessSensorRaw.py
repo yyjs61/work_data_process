@@ -6,7 +6,10 @@ import yaml, natsort
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
 
-ROOT = '/data/OVH9000_DCG_20260326_portrait/'
+# ROOT = '/data/OVH9000_DCG_20260326_portrait/'
+# ROOT = r'D:\Data\20260423\honor/'
+ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
+
 RECEIVED = ROOT + 'received/'
 
 

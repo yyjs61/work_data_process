@@ -4,9 +4,12 @@ import numpy as np
 # ROOT = "/home/user/afs_data/wang/0330_hnr_tele_hp3_quad_artifactTestData/"
 # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/"
 # ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/"
-ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/"
+# ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/"
+# ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
+ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506/"
 
 SRC_ROOT = os.path.join(ROOT, "received")
+# SRC_ROOT = os.path.join(ROOT, "50X_Night_lofic_0422")
 DST_ROOT = os.path.join(ROOT, "unpack_raw")
 
 SHIFT_CANDIDATES = [6, 4, 2]

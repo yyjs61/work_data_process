@@ -5,12 +5,16 @@ import subprocess, sys, os
 # 传输文件  AOSS <----> ECS
 
 # SRC = 's3://isp_projectdata/VideoSupernightData/A500_Benchmark/aitone/OVH9000_DCG_20260318_hair/'
-SRC = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X/20260417_dcg_lofic/'
+SRC = 's3:/0+/'
 # SRC = 's3://isp_share/wangyuemei/test_data/hnr_wide_ov52a_dcg_testdate_20260408/'
+# SRC = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X/quad_day_20260506/'
+
 
 
 # DST = '/home/user/afs_data/wang/' + os.path.basename(SRC[:-1]) + '/'
-DST = r'D:\Data\DJI_OV50X\20260420\20260417_dcg_lofic/'
+# DST = r'D:\Data\DJI_OV50X\20260420\20260417_dcg_lofic/'
+# DST = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\quad_day_20260506/"
+DST = r'D:\Data\2026_05\07\V3_imx06c_20260507/'
 
 
 ACCESS = '019CD08AD5FA70418950DF3D777184E0' #ID

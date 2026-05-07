@@ -1,11 +1,15 @@
 import os, glob, yaml, natsort
 
-ROOT = '/data/SC590_dcg_20260319_sensorraw/'
+# ROOT = '/data/SC590_dcg_20260319_sensorraw/'
+ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
+
 UNPACK_RAW = os.path.join(ROOT, 'unpack_raw')
 
 EXAMPLE_META = '''
-Black_level: 1024.0
+Black_level: 256.0
 White_level: 16383.0
+under_Black_level: 256.0
+under_White_level: 4095.0
 ccm_matrix: [[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]
 bayer_pattern: RGGB
 
@@ -22,6 +26,14 @@ def generate_frame_meta(frame_idx):
     result['sensorgain'] = gain
     result['gain'] = gain
     result['SensorDGain'] = 1.0
+
+    under_iso = 800
+    under_gain = under_iso / 100.0
+    result['under_iso'] = under_iso
+    result['under_SensorAGain'] = under_gain
+    result['under_sensorgain'] = under_gain
+    result['under_gain'] = under_gain
+    result['under_SensorDGain'] = 1.0
 
     result['expotime'] = 10000000 
 

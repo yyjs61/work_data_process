@@ -7,13 +7,13 @@ import cv2, yaml, glob, os, sys, numpy as np
 
 # ROOT = '/data/OVH9000_DCG_20260326_portrait/'
 # ROOT = r'D:\Data\20260423\honor/'
-ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
+ROOT = r'D:\Data\2026_05\07\add_/'
 
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
 
 
-H = 2304
+H = 3072
 # H = 3600
 W = 4096
 

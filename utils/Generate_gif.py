@@ -2,7 +2,15 @@ import os
 import subprocess
 import glob
 
-ROOT = "/home/user/afs_data/wang/hnr_wide_ov52a_dcg_testdate_20260408"
+# ROOT = "/home/user/afs_data/wang/hnr_wide_ov52a_dcg_testdate_20260408"
+# ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/"
+# ROOT = r'D:\Data\20260423\VAI_OVH9000_Magic7Pro_20260423/'
+# ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
+# ROOT = r'D:\Data\2026_05\06\V3_imx06c_20260506/'
+# ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506/"
+ROOT = r'D:\Data\2026_05\07\add_/'
+
+
 # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408"
 
 JPG_ROOT = os.path.join(ROOT, "jpg")

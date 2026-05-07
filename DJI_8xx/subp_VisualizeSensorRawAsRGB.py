@@ -6,7 +6,9 @@ import cv2, yaml, glob, os, sys, numpy as np
 #     ROOT = file.readline().strip()
 # ROOT = '/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/'
 # ROOT = '/home/user/afs_data/LeeSin_Xie/data/TestData/'
-ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/"
+# ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/"
+# ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/"
+ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506/"
 
 
 UNPACK_RAW = ROOT + 'unpack_raw/'

@@ -1,7 +1,10 @@
 import os, glob, yaml, natsort, json, re
 
 # ROOT = '/home/user/afs_data/LeeSin_Xie/Quad_dag_20260409/'
-ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/"
+# ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/"
+# ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/"
+ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506/"
+
 
 UNPACK_RAW = os.path.join(ROOT, 'unpack_raw')
 RECEIVED_ROOT = os.path.join(ROOT, 'received')  # received 目录路径
@@ -87,7 +90,8 @@ for scene in scenes:
             
             # 2. 提取 wb_gain -> data -> [rgain, gain, bgain]
             if 'wb_gain' in json_data and 'data' in json_data['wb_gain']:
-                wb_data = json_data['wb_gain']['data']
+                wb_data = json_data['wb_gain']['data'][0]
+                print(wb_data)
                 if len(wb_data) >= 3:
                     r_gain_val = wb_data[0]  # rgain
                     b_gain_val = wb_data[2]  # bgain

@@ -7,7 +7,11 @@ import glob
 # with open(ROOT_PATH_FILE, 'r') as f:
 #     ROOT = f.readline().strip()
 
-ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408"
+# ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408"
+# ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/"
+# ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\quad_day_20260506/"
+ROOT = r'D:\Data\2026_05\07\add_/'
+
 
 
 JPG_ROOT = os.path.join(ROOT, "jpg")
