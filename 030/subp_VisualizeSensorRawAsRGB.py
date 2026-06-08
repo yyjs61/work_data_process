@@ -4,7 +4,13 @@ import cv2, yaml, glob, os, sys, numpy as np
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
-ROOT = '/data/030_Test_0327_for16-9_20260327/'
+# ROOT = '/data/030_Test_0327_for16-9_20260327/'
+# ROOT = r"D:\Data\2026_05\13\030_dcg_lab_20260508/"
+# ROOT = r'D:\Data\2026_06\04\030_4k60_quad_scg_outside_20260604/'
+# ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
+# ROOT = r'D:\Data\2026_06\05\V210_OV50X_quad_night_20260519/'
+# ROOT = r"D:\Data\2026_06\05\030_1x_dcg_sensor_raw_ev0_ev+_ev+2_3000k_20260605/"
+ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
 
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
@@ -23,10 +29,10 @@ BAYER_PATTERN = 'BGGR'
 # BP = 1024
 
 # WP = 1023
-# BP = 64
+BP = 64
 
 WP = 16383
-BP = 64
+# BP = 64
 
 
 # WP = 4095
@@ -112,14 +118,17 @@ scene = sys.argv[1]
 os.makedirs(os.path.join(os.path.join(ROOT, OUTPUT_DIR), scene), exist_ok=True)
 for index, file in enumerate(sorted(glob.glob(os.path.join(UNPACK_RAW, scene, '*.raw')))):
     img = np.fromfile(file, dtype='uint16').reshape([H, W]).astype('float')
-    # img = QuadBayer2CHW(img)
+
+    img = QuadBayer2CHW(img)
     # img = HEX2CHW(img)
-    # img = CHW2RGB(img)
+    img = CHW2RGB(img)
+
     img = (img - BP) / (WP - BP)
     img = img.clip(0, 1)
     # img = awb(img)
-    img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
-    img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
+    
+    # img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
+    # img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
 
     yaml_path = os.path.join(YAML_DATA,scene,str(index).zfill(3) + '.yaml')  
     with open(yaml_path,'r',encoding='utf-8') as file_yaml:

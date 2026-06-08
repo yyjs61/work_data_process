@@ -1,7 +1,8 @@
 import os
 import numpy as np
 
-ROOT = "/data/0415_hnr_wide_ov52a_dcg_texture_testdata2/"
+# ROOT = "/data/0415_hnr_wide_ov52a_dcg_texture_testdata2/"
+ROOT = r"D:\Data\2026_05\26\0525_wide_ov52a_dagquad_texture_testdata2/"
 
 SRC_ROOT = os.path.join(ROOT, "received")
 DST_ROOT = os.path.join(ROOT, "unpack_raw")

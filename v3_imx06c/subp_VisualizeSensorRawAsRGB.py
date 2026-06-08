@@ -7,20 +7,30 @@ import cv2, yaml, glob, os, sys, numpy as np
 
 # ROOT = '/data/OVH9000_DCG_20260326_portrait/'
 # ROOT = r'D:\Data\20260423\honor/'
-ROOT = r'D:\Data\2026_05\07\add_/'
+# ROOT = r'D:\Data\2026_05\07\add_/'
+# ROOT = r"D:\Data\2026_05\09\V3_imx06c_20260509/"
+# ROOT = r"D:\Data\2026_05\12\V3_imx06c_20260512/"
+# ROOT = r"D:\Data\2026_05\20\V3_imx06c_gen_meta_20260520/"
+# ROOT = r"D:\Data\2026_05\20\V3_imx06c_20260520/"
+
+# ROOT = r"D:\Data\2026_05\22\V3_imx06c_20260522/"
+# ROOT = r"D:\Data\2026_05\22\blc_raw/"
+ROOT = r"D:\Data\2026_06\04\V3_imx06c_20260604/"
 
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
 
 
 H = 3072
+# H = 4096
 # H = 3600
 W = 4096
 
 BAYER_PATTERN = 'RGGB'
 
 
-WP = 16383
+# WP = 16383
+WP = 1023
 BP = 64
 
 # WP = 4092

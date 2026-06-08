@@ -2,7 +2,8 @@ import os
 import subprocess
 import glob
 
-ROOT = r"D:\Data\DJI_OV50X\20260423\20260423_Simulation_materials/"
+# ROOT = r"D:\Data\DJI_OV50X\20260423\20260423_Simulation_materials/"
+ROOT = r"D:\Data\DJI_OV50X\20260513\0511_ov50x_raw-2026-05-13\20260513_material/"
 
 JPG_ROOT = os.path.join(ROOT, "jpg")
 GIF_ROOT = os.path.join(ROOT, "gif")

@@ -4,7 +4,7 @@ import glob
 import natsort
 
 # ==================== 配置区域 ====================
-ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506"
+ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605"
 CPATH = r"unpack_raw"
 FILE_PATTERN = "*.raw"  # 可修改为 "*.mp4" 或其他
 # ==================== 配置区域结束 ====================
@@ -61,7 +61,7 @@ def add_prefix_to_scenes(root_path, prefix_length=2):
     
     print(f"功能 1 完成。")
 
-def add_prefix_to_files(root_path, prefix_length=2):
+def add_prefix_to_files(root_path, prefix_length=3):
     """
     功能 2：给场景下的特定文件添加递增前缀（如 000__、001__）
     """
@@ -453,4 +453,4 @@ if __name__ == "__main__":
     # main([1, 2])
     
     # 示例 4：执行多个功能
-    main([1, 2])
+    main([6])

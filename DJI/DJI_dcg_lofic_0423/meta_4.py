@@ -16,7 +16,9 @@ from pathlib import Path
 
 
 # ==================== 路径配置 ====================
-ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
+# ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
+ROOT = r"D:\Data\DJI_OV50X\20260513\0511_ov50x_raw素材-2026-05-13\20260513_material/"
+
 # ROOT = "/path/to/your/project"  # Linux/Mac 路径示例
 
 UNPACK_RAW = os.path.join(ROOT, 'unpack_raw')
@@ -60,12 +62,12 @@ def map_meta_to_yaml(meta: dict, expotime_ns: int) -> dict:
     b_gain = float(wb_match.group(2)) if wb_match else 2.0
 
     # 3. 解析 DCG 参数（主曝光）
-    dcg_bl = float(meta.get('DCG 14bit blacklevel', 1024))
+    # dcg_bl = float(meta.get('DCG 14bit blacklevel', 1024))
     dcg_again = float(meta.get('dcg again', 1.0))
     exposure_ratio = float(meta.get('感度比', 1.0))  # 直接使用感度比
     
     # 4. 解析 LOFIC 参数（under 曝光）
-    lofic_bl = float(meta.get('Lofic 14bit blacklevel', 4096))
+    # lofic_bl = float(meta.get('Lofic 14bit blacklevel', 4096))
     lofic_again = float(meta.get('lofic again', 1.0))
     
     # 5. 解析 CCT

@@ -2,21 +2,24 @@ import os
 import numpy as np
 
 # ROOT = "/data/030_CALI_0326"
-ROOT = "/home/user/afs_data/LeeSin_Xie/data/RatingData"
+# ROOT = "/home/user/afs_data/LeeSin_Xie/data/RatingData"
+# ROOT = r"D:\Data\2026_05\08\D-gain_calibration_data"
+# ROOT = r"D:\Data\DJI_OV50X\20260513\mcc_chart"
+ROOT = r"D:\Data\2026_06\08\Honor_FPRO_TELE_QUAD_20260608_ER1"
 
 SRC_ROOT = os.path.join(ROOT, "origin")
 NOISE_PROFILE_ROOT = os.path.join(ROOT, "NoiseProfile")
 BLACK_LEVEL_ROOT = os.path.join(ROOT, "BlackLevel")
 
 MAP = {
-    "mcc_chart": NOISE_PROFILE_ROOT,
-    "black_level": BLACK_LEVEL_ROOT,
+    "NoiseProfile": NOISE_PROFILE_ROOT,
+    "BlackLevel": BLACK_LEVEL_ROOT,
 }
 
 SHIFT_CANDIDATES = [6, 4, 2]
 
 
-def detect_shift_bits(arr, zero_ratio_thresh=0.999):
+def detect_shift_bits(arr, zero_ratio_thresh=0.9999999):
     for shift in [6, 4, 2]:
         mask = (1 << shift) - 1
         zeros = np.count_nonzero((arr & mask) == 0)
@@ -55,8 +58,8 @@ for src_type, dst_root in MAP.items():
 
             os.makedirs(dst_scene_dir, exist_ok=True)
 
-            # dst_file = os.path.join(dst_scene_dir, fname + ".raw")
-            dst_file = os.path.join(dst_scene_dir, fname)
+            dst_file = os.path.join(dst_scene_dir, fname + ".raw")
+            # dst_file = os.path.join(dst_scene_dir, fname)
             data.tofile(dst_file)
 
         print(f"[OK] Scanned: {root}")

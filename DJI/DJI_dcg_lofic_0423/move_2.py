@@ -6,7 +6,8 @@ import numpy as np
 # ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/"
 # ROOT = r"D:\Data\DJI_OV50X\20260422\flower_portrait_20260422-2026-04-22\Quad_dag_20260422/"
 # ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
-ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506/"
+# ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506/"
+ROOT = r"D:\Data\DJI_OV50X\20260513\0511_ov50x_raw素材-2026-05-13\20260513_material/"
 
 SRC_ROOT = os.path.join(ROOT, "received")
 # SRC_ROOT = os.path.join(ROOT, "50X_Night_lofic_0422")
@@ -15,7 +16,7 @@ DST_ROOT = os.path.join(ROOT, "unpack_raw")
 SHIFT_CANDIDATES = [6, 4, 2]
 
 
-def detect_shift_bits(arr, zero_ratio_thresh=0.999):
+def detect_shift_bits(arr, zero_ratio_thresh=0.999999):
 
     for shift in SHIFT_CANDIDATES:
         mask = (1 << shift) - 1

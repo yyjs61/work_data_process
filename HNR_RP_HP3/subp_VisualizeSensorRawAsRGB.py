@@ -4,7 +4,8 @@ import cv2, yaml, glob, os, sys, numpy as np
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
-ROOT = '/data/0415_hnr_wide_ov52a_dcg_texture_testdata2/'
+# ROOT = '/data/0415_hnr_wide_ov52a_dcg_texture_testdata2/'
+ROOT = r"D:\Data\2026_05\26\0525_wide_ov52a_dagquad_texture_testdata2/"
 
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
@@ -115,14 +116,14 @@ scene = sys.argv[1]
 os.makedirs(os.path.join(os.path.join(ROOT, OUTPUT_DIR), scene), exist_ok=True)
 for index, file in enumerate(sorted(glob.glob(os.path.join(UNPACK_RAW, scene, '*.raw')))):
     img = np.fromfile(file, dtype='uint16').reshape([H, W]).astype('float')
-    # img = QuadBayer2CHW(img)
+    img = QuadBayer2CHW(img)
     # img = HEX2CHW(img)
-    # img = CHW2RGB(img)
+    img = CHW2RGB(img)
     img = (img - BP) / (WP - BP)
     img = img.clip(0, 1)
     # img = awb(img)
-    img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
-    img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
+    # img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
+    # img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
 
     yaml_path = os.path.join(YAML_DATA,scene,str(index).zfill(3) + '.yaml')  
     with open(yaml_path,'r',encoding='utf-8') as file_yaml:

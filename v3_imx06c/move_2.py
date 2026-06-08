@@ -5,7 +5,9 @@ import numpy as np
 # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/"
 # ROOT = r"D:\Data\20260416\quad_potraitraw_for_yw-2026-04-16\quad_potraitraw_for_yw/"
 # ROOT = r"D:\Data\2026_05\07\V3_imx06c_20260507/"
-ROOT = r"D:\Data\2026_05\07\add_/"
+# ROOT = r"D:\Data\2026_05\20\V3_imx06c_gen_meta_20260520/"
+# ROOT = r"D:\Data\2026_05\22\V3_imx06c_20260522/"
+ROOT = r"D:\Data\2026_06\04\V3_imx06c_20260604/"
 
 SRC_ROOT = os.path.join(ROOT, "received")
 DST_ROOT = os.path.join(ROOT, "unpack_raw")

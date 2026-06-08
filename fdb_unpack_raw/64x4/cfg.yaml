@@ -1,0 +1,52 @@
+## image height/width
+height: 3072
+width: 4096
+
+## io path
+# if relative, then it is relative to process's CWD
+# input file, i.e., compressed raw
+input_stm_path: D:\Data\2026_05\22\blc_raw\received\ainr_raw\req[4]_frame[7]_p[HwSim4k30ainrnodsp_pipeline1]_SCPNode[0]_port[0]_w[4096]_h[3072]_2026-01-22--19-16-29-263892_L.raw
+# output dir
+dump_dir: D:\Work\Code\raw_fbd-main\output
+
+## fbc parameters begin
+
+# wr burstx, one of 256, 128
+align_to_bits: 256
+
+# 1 if blk wr0, 0 otherwise
+is_input_signed: 0
+
+# group size, one of 1x256, 4x64, 4x32
+gp_height: 4
+gp_width: 64
+
+bit_depth: 14 # original bit_depth
+target_bit_depth: 12 # compressed bit depth
+max_qp_value: 7
+qpk_table:
+  - 3
+  - 5
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 3
+  - 3
+  - 3
+rec_is_quad_bayer: 0
+src_is_quad_bayer: 0
+
+## fbc parameters end
+
+
+## keep following ASIS
+
+compress_mode: 2
+format: 1
+input_len_path: null
+is_release: 1
+log_path: null
+sgp_width: 32
+stage: normal_warp

@@ -4,13 +4,14 @@ import subprocess, os, time
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
-ROOT = '/data/0415_hnr_wide_ov52a_dcg_texture_testdata2/'
+# ROOT = '/data/0415_hnr_wide_ov52a_dcg_texture_testdata2/'
+ROOT = r"D:\Data\2026_05\26\0525_wide_ov52a_dagquad_texture_testdata2/"
 
 UNPACK_RAW = ROOT + 'unpack_raw'
 scenes = sorted(os.listdir(UNPACK_RAW))
 
 def run_scene(scene):
-    cmd = f'python data_process_demo/HNR_RP_HP3/subp_VisualizeSensorRawAsRGB.py {scene}'
+    cmd = f'python HNR_RP_HP3/subp_VisualizeSensorRawAsRGB.py {scene}'
     return subprocess.run(cmd, shell=True)
 
 with ThreadPoolExecutor(max_workers=3) as executor:

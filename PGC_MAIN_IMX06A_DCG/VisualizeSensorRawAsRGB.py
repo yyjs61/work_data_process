@@ -5,7 +5,10 @@ import cv2, yaml, glob, os, sys, numpy as np
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
 
-ROOT = '/data/imx06a/'
+# ROOT = '/data/imx06a/'
+# ROOT = r'E:\0512/'
+ROOT = r'D:\Data\2026_05\19\0519_2/'
+
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
 
@@ -15,15 +18,15 @@ W = 3840
 BAYER_PATTERN = 'RGGB'
 
 
-# WP = 16383.0
-# BP = 1024.0
+WP = 16383.0
+BP = 1024.0
 
 
 # WP = 1023.0
 # BP = 64.0
 
-WP = 4095.0
-BP = 256.0
+# WP = 4095.0
+# BP = 256.0
 
 
 OUTPUT_DIR = 'jpg'

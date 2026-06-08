@@ -6,14 +6,15 @@ import subprocess, os, time
 #     ROOT = file.readline().strip()
 # ROOT = '/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/'
 # ROOT = '/home/user/afs_data/LeeSin_Xie/data/TestData/'
-ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
+# ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
+ROOT = r"D:\Data\DJI_OV50X\20260513\0511_ov50x_raw-2026-05-13\20260513_material/"
 
 
 UNPACK_RAW = ROOT + 'unpack_raw'
 scenes = sorted(os.listdir(UNPACK_RAW))
 
 def run_scene(scene):
-    cmd = f'python DJI/DJi_portrait/subp_VisualizeSensorRawAsRGB.py {scene}'
+    cmd = f'python DJI/DJI_dcg_lofic_0423/subp_VisualizeSensorRawAsRGB.py {scene}'
     # print(scene)
     return subprocess.run(cmd, shell=True)
 

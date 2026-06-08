@@ -6,7 +6,9 @@ import subprocess, os, time
 #     ROOT = file.readline().strip()
 
 # ROOT = '/data/030_CALI_9_16_0326/'
-ROOT = '/home/user/afs_data/LeeSin_Xie/data/RatingData/'
+# ROOT = '/home/user/afs_data/LeeSin_Xie/data/RatingData/'
+# ROOT = r'D:\Data\2026_05\08\D-gain_calibration_data/'
+ROOT = r"D:\Data\2026_06\08\Honor_FPRO_TELE_QUAD_20260608_ER1/"
 
 # UNPACK_RAW = ROOT + 'BlackLevel'
 UNPACK_RAW = ROOT + 'NoiseProfile'

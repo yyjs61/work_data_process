@@ -5,15 +5,19 @@ import cv2, yaml, glob, os, sys, numpy as np
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
 # ROOT = '/data/030_CALI_9_16_0326/'
-ROOT = '/home/user/afs_data/LeeSin_Xie/data/RatingData/'
-
+# ROOT = '/home/user/afs_data/LeeSin_Xie/data/RatingData/'
+# ROOT = r'D:\Data\2026_05\08\D-gain_calibration_data/'
+ROOT = r"D:\Data\2026_06\08\Honor_FPRO_TELE_QUAD_20260608_ER1/"
 # UNPACK_RAW = ROOT + 'BlackLevel/'
 UNPACK_RAW = ROOT + 'NoiseProfile/'
 # YAML_DATA = ROOT + 'yamls_eachFrame/'
 
-H = 4096
-W = 2304
-
+# W = 3840
+# H = 2160
+# W = 4080
+# H = 2592
+W = 4096
+H = 2304
 # BAYER_PATTERN = 'BGGR'
 BAYER_PATTERN = 'RGGB'
 
@@ -21,11 +25,12 @@ BAYER_PATTERN = 'RGGB'
 # WP = 16383
 # BP = 1024
 
-# WP = 1024
-# BP = 64
+WP = 1024
+BP = 64
 
-WP = 4095
-BP = 256
+# WP = 4095
+# # BP = 256
+# BP = 200
 
 
 OUTPUT_DIR = 'jpg'
@@ -140,12 +145,12 @@ for index, file in enumerate(sorted(glob.glob(os.path.join(UNPACK_RAW, scene, '*
 
     # quad
     img = QuadBayer2CHW(img)
-    # img = HEX2CHW(img)
+    # # img = HEX2CHW(img)    
     img = CHW2RGB(img)
 
     img = (img - BP) / (WP - BP)
     img = img.clip(0, 1)
-        # img = awb(img)
+    # img = awb(img)
 
     # normal
     # img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth

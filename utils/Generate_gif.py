@@ -8,9 +8,34 @@ import glob
 # ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
 # ROOT = r'D:\Data\2026_05\06\V3_imx06c_20260506/'
 # ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506/"
-ROOT = r'D:\Data\2026_05\07\add_/'
+# ROOT = r'D:\Data\2026_05\07\add_/'
+# ROOT = r'D:\Data\2026_05\07\imx01f_EVT2p3_0040\IAC4_imx01f_EVT2p3_0040_sensor_raw_ultrawide_20260508/'
+# ROOT = r'D:\Data\2026_05\08\D-gain_calibration_data/'
 
-
+# ROOT = r"D:\Data\2026_05\09\V3_imx06c_20260509/"
+# ROOT = r"D:\Data\DJI_OV50X\20260509\Quad_dag_20260509"
+# ROOT = r"D:\Data\2026_05\12\V3_imx06c_20260512/"
+# ROOT = r'E:\0512/'
+# ROOT = r'D:\Data\2026_05\19\0519/'
+# ROOT = r'D:\Data\2026_05\19\IMX06C_binning_normal_4k_20260514/'
+# ROOT = r"D:\Data\2026_05\20\V3_imx06c_gen_meta_20260520/"
+# ROOT = r"D:\Data\2026_05\20\V3_imx06c_20260520/"
+# ROOT = r"D:\Data\2026_05\22\V3_imx06c_20260522/"
+# ROOT = r"D:\Data\2026_05\22\blc_raw/"
+# ROOT = r'D:\Data\2026_05\22\IAC4_IMX01F_DCG_ER4_UltralWide_20260522/'
+# ROOT = r'D:\Data\2026_05\25\IAC4_IMX01F_DCG_ER4_Wide_night_20260525/'
+# ROOT = r"D:\Data\2026_05\26\0525_wide_ov52a_dagquad_texture_testdata2/"
+# ROOT = r'D:\Data\2026_05\27\IAC4_IMX01F_DCG_ER16_Wide_Night_dumpraw_20260527/'
+# ROOT = r'D:\Data\2026_05\28\IAC4_IMX01F_DCG_ER16_01_20260528/'
+# ROOT = r'D:\Data\2026_05\29\NR_iterative_data_20260529/'
+# ROOT = 'D:/Data/2026_06/01/030_20260601_day_dump/'
+# ROOT = r'D:\Data\2026_06\03\IAC4_IMX01F_DCG_ER4_Wide_20260603/'
+# ROOT = r'D:\Data\2026_06\04\030_4k60_quad_scg_outside_20260604/'
+# ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
+# ROOT = r'D:\Data\2026_06\05\V210_OV50X_quad_night_20260519/'
+# ROOT = r"D:\Data\2026_06\05\030_1x_dcg_sensor_raw_ev0_ev+_ev+2_3000k_20260605/"
+# ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
+ROOT = r"D:\Data\2026_06\08\Honor_FPRO_TELE_QUAD_20260608_ER1/"
 # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408"
 
 JPG_ROOT = os.path.join(ROOT, "jpg")

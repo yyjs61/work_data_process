@@ -1,7 +1,8 @@
 import os
 from glob import glob
 
-ROOT = "/data/0415_hnr_wide_ov52a_dcg_texture_testdata2"
+# ROOT = "/data/0415_hnr_wide_ov52a_dcg_texture_testdata2"
+ROOT = r"D:\Data\2026_05\26\0525_wide_ov52a_dagquad_texture_testdata2/"
 
 RECEIVED_ROOT = os.path.join(ROOT, "received")
 UNPACK_RAW_ROOT = os.path.join(ROOT, "unpack_raw")

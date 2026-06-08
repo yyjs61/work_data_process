@@ -6,7 +6,7 @@ import os, glob, natsort, shutil, numpy as np
 
 # ROOT = '/data/OVH9000_DCG_20260326_portrait/'
 # ROOT = r'D:\Data\20260423\honor/'
-ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
+ROOT = r'D:\Data\2026_05\29\NR_iterative_data_20260529/'
 
 RECEIVED = ROOT + 'received/'
 UNPACK_RAW = ROOT + 'unpack_raw/'

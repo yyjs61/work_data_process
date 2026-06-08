@@ -5,7 +5,8 @@ import yaml, sys
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
-ROOT = '/data/imx06a/'
+# ROOT = '/data/imx06a/'
+ROOT = r'E:\0512/'
 RECEIVED = ROOT + 'received/'
 UNPACK_RAW = ROOT + 'unpack_raw'
 
@@ -20,9 +21,11 @@ UNPACK_RAW = ROOT + 'unpack_raw'
 
 # '''
 
+# Black_level: 256.0
+# White_level: 4095.0
 EXAMPLE_META = '''
-Black_level: 256.0
-White_level: 4095.0
+Black_level: 1024.0
+White_level: 16383.0
 bayer_pattern: RGGB
 ccm_matrix: [[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]
 lux_index: 300.0
@@ -31,8 +34,11 @@ luxid: 300.0
 '''
 BAYER_PATTERN = 'RGGB'
 # BAYER_PATTERN = 'GBRG'
-BP = 64.0
-WP = 1023.0
+# BP = 64.0
+# WP = 1023.0
+
+BP = 1024.0
+WP = 16383.0
 
 W = 3840
 H = 2160

@@ -97,7 +97,9 @@ def add_suffix_to_raw_files(root_path):
 if __name__ == "__main__":
     # 配置路径
     # ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_portrait\unpack_raw"
-    ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23\unpack_raw"
+    # ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23\unpack_raw"
+    ROOT = r"D:\Data\2026_06\05\V210_OV50X_Lofic_human_face_20260603/unpack_raw"
+
     print("=" * 60)
     print("RAW 文件后缀添加工具")
     print("=" * 60)

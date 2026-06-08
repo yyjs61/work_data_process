@@ -3,7 +3,9 @@ import os, glob, natsort, shutil, numpy as np
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
-ROOT = '/data/20260313_PGC_IMX06A_DCG/'
+# ROOT = '/data/20260313_PGC_IMX06A_DCG/'
+# ROOT = r'D:\Data\2026_05\19\0519_2/'
+ROOT = r'D:\Data\2026_05\22\0522_ov50q_normal/'
 
 RECEIVED = ROOT + 'received/'
 MIPI_RAW = ROOT + 'unpack_raw/'

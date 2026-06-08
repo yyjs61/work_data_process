@@ -1,7 +1,10 @@
 import os
 import numpy as np
 
-ROOT = "/data/030_Test_0327_for16-9_20260327/"
+# ROOT = "/data/030_Test_0327_for16-9_20260327/"
+# ROOT = r"D:\Data\2026_05\13\030_dcg_lab_20260508/"
+# ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
+ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
 
 SRC_ROOT = os.path.join(ROOT, "received")
 DST_ROOT = os.path.join(ROOT, "unpack_raw")
@@ -10,7 +13,7 @@ DST_ROOT = os.path.join(ROOT, "unpack_raw")
 SHIFT_CANDIDATES = [6, 4, 2]
 
 
-def detect_shift_bits(arr, zero_ratio_thresh=0.999):
+def detect_shift_bits(arr, zero_ratio_thresh=0.999999):
 
     for shift in SHIFT_CANDIDATES:
         mask = (1 << shift) - 1
@@ -38,6 +41,7 @@ for scene in sorted(os.listdir(SRC_ROOT)):
         data = np.fromfile(src_file, dtype=np.uint16)
 
         shift_bits = detect_shift_bits(data)
+        # shift_bits = 2
         if shift_bits > 0:
             print(f"[SHIFT] {scene}/{fname}  >> {shift_bits}")
             data = data >> shift_bits

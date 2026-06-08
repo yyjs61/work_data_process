@@ -1,0 +1,23 @@
+Black_level: 200
+LV: 0.0
+luxid: 95
+SensorAGain: 1
+White_level: 4095.0
+b_gain: 1.978
+bayer_pattern: RGGB
+ccm_matrix:
+- - 1.0
+  - 0.0
+  - 0.0
+- - 0.0
+  - 1.0
+  - 0.0
+- - 0.0
+  - 0.0
+  - 1.0
+cct: 3208
+expotime: 33000000
+gain: 327
+iso: 16367
+isp_gain: 1.0
+r_gain: 1.697

@@ -5,15 +5,11 @@ import glob, os, numpy as np
 #     ROOT = file.readline().strip()
 
 # ROOT = '/home/user/afs_data/wang/hnr_wide_ov52a_dcg_testdate_20260408/'
-# ROOT = r'D:\Data\DJI_OV50X\20260420\20260417_portrait/'
-# ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_dcg_lofic/"
-# ROOT = r"D:\Data\DJI_OV50X\20260423\20260423_Simulation_materials/"
-# ROOT = r'D:\Data\20260423\VAI_OVH9000_Magic7Pro_20260423/'
-# ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
-# ROOT = r'D:\Data\2026_05\06\V3_imx06c_20260506/'
-# ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\quad_day_20260506/"
-ROOT = r'D:\Data\2026_05\07\V3_imx06c_20260507/'
-
+# ROOT = r'D:\Data\2026_05\29\OVH9000_DCG_20260529_lab_darkest_walking_camera_moving/'
+# ROOT = r'D:\Data\2026_06\04\030_4k60_quad_scg_outside_20260604/'
+# ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
+# ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
+ROOT = r'D:\Data\2026_06\07\IAC4_IMX01F_DCG_ER4_Wide_lab_20260608/'
 
 if ROOT[-1] == '/':
   DATASET_NAME = os.path.basename(ROOT[:-1])
@@ -37,8 +33,15 @@ LUSTER_ROOT = ROOT
 if LUSTER_ROOT[-1] == '/':
     LUSTER_ROOT = LUSTER_ROOT[:-1]
 
+# s3 = 's3://isp_projectdata/VideoSupernightData/8xx'
+s3 = 's3://isp_projectdata/VideoSupernightData/IAC4'
+# s3 = 's3://isp_projectdata/VideoSupernightData/030'
+# s3 = 's3://isp_projectdata/VideoSupernightData/A210/OV50X/Quad'
+# s3 = 's3://isp_projectdata/VideoSupernightData/A500_Benchmark/fusioncore'
 # s3 = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X'
-s3 = 's3://isp_projectdata/VideoSupernightData/V3_IMX06C'
+# s3 = 's3://isp_projectdata/VideoSupernightData/V3_IMX06C'
+# s3 = 's3://isp_projectdata/VideoSupernightData/VNT/IP_V2p5'
+
 # s3 = 's3://isp_projectdata/VideoSupernightData/A500_Benchmark/aitone'
 # s3 = 's3://isp_projectdata/VideoSupernightData/VAI'
 # s3 = 's3://isp_projectdata/Calibration/_CalibrationLSC/OBSBOT_SC5A0XS'

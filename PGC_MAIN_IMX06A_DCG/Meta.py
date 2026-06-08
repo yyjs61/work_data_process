@@ -6,9 +6,11 @@ import sys
 import natsort
 
 
-ROOT_PATH = './ROOT_PATH.txt'
-with open(ROOT_PATH, 'r') as file:
-    ROOT = file.readline().strip()
+# ROOT_PATH = './ROOT_PATH.txt'
+# with open(ROOT_PATH, 'r') as file:
+#     ROOT = file.readline().strip()
+
+ROOT = r'D:\Data\2026_05\19\0519_2/'
 
 RECEIVED = ROOT + 'received/'
 UNPACK_RAW = ROOT + 'unpack_raw'

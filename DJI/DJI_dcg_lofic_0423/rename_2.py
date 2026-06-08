@@ -313,7 +313,8 @@ def main():
     # 配置路径
     # ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23\unpack_raw"
     # ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23\received"
-    ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506\unpack_raw"
+    # ROOT = r"D:\Data\DJI_OV50X\20260506\v2_data_20260506-2026-05-06\v2_data_20260506\unpack_raw"
+    ROOT = r"D:\Data\2026_06\05\V210_OV50X_Lofic_human_face_20260603/unpack_raw"
     
     print("="*60)
     print("文件重命名工具 - 基于帧编号（每场景独立计数）")
@@ -324,7 +325,7 @@ def main():
     # 步骤 1：给场景添加前缀
     add_prefix_to_scenes(ROOT)
     # 场景文件夹名中的 '.' 替换为 'p'
-    replace_dots_in_scenes(ROOT)
+    # replace_dots_in_scenes(ROOT)
     # 步骤 2：给 raw 文件基于帧编号添加前缀（每场景独立计数）
     add_prefix_to_files_by_frame_number(ROOT)
     

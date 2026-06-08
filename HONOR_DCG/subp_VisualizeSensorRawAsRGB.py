@@ -4,17 +4,14 @@ import cv2, yaml, glob, os, sys, numpy as np
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
-
-# ROOT = '/data/OVH9000_DCG_20260326_portrait/'
-# ROOT = r'D:\Data\20260423\honor/'
-ROOT = r'D:\Data\2026_04\29\OVH9000_DCG_20260429_garage/'
+# ROOT = "/home/user/afs_data/ACEPro2/OVH9000_DCG_20260417_low_light/honor/"
+ROOT = r'D:\Data\2026_05\29\NR_iterative_data_20260529/'
 
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
 
 
 H = 2304
-# H = 3600
 W = 4096
 
 BAYER_PATTERN = 'RGGB'
@@ -23,8 +20,6 @@ BAYER_PATTERN = 'RGGB'
 WP = 16383
 BP = 64
 
-# WP = 4092
-# BP = 256
 
 OUTPUT_DIR = 'jpg'
 OUTPUT_TYPE = 'jpg'
@@ -32,7 +27,7 @@ OUTPUT_TYPE = 'jpg'
 # PSEUDO_ISP_GAIN = 1
 # AWB_R_GAIN = 2.0
 # AWB_B_GAIN = 1.8
-GAMMA = 2.8
+GAMMA = 2.4
 
 
 DEMOSAIC_DICT = {
@@ -90,14 +85,6 @@ def CHW2RGB(CHW):
         r, g0, g1, b = CHW
         g = (g0 + g1)/2.0
         return np.stack([b, g, r], axis=-1)
-    if BAYER_PATTERN == 'GRBG':
-        g0, r, b, g1 = CHW
-        g = (g0 + g1)/2.0
-        return np.stack([b, g, r], axis=-1)
-    if BAYER_PATTERN == 'BGGR':
-        b, g0, g1, r = CHW
-        g = (g0 + g1)/2.0
-        return np.stack([b, g, r], axis=-1)
 
 
 # scenes = sorted(os.listdir(UNPACK_RAW))
@@ -107,7 +94,6 @@ os.makedirs(os.path.join(os.path.join(ROOT, OUTPUT_DIR), scene), exist_ok=True)
 for index, file in enumerate(sorted(glob.glob(os.path.join(UNPACK_RAW, scene, '*.raw')))):
     img = np.fromfile(file, dtype='uint16').reshape([H, W]).astype('float')
     # img = QuadBayer2CHW(img)
-    # img = HEX2CHW(img)
     # img = CHW2RGB(img)
     img = (img - BP) / (WP - BP)
     img = img.clip(0, 1)
@@ -120,11 +106,9 @@ for index, file in enumerate(sorted(glob.glob(os.path.join(UNPACK_RAW, scene, '*
         yaml_content = yaml.safe_load(file_yaml)
     awb_b_gain = yaml_content['b_gain']
     awb_r_gain = yaml_content['r_gain']
-
     img[..., 0] *= awb_b_gain
     img[..., 2] *= awb_r_gain
     img *= yaml_content['isp_gain']
-    img *= 1.0
     img = img ** (1 / GAMMA)
     img = (img.clip(0, 1) * 255).astype('uint8')
     cv2.imwrite(os.path.join(ROOT, OUTPUT_DIR, scene, os.path.basename(file).replace('.raw', f'.{OUTPUT_TYPE}')), img)

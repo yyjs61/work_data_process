@@ -111,7 +111,13 @@ def write_yaml_file(filepath, data):
 
 def main():
     # ROOT = r'C:\Users\admin.DESKTOP-QNCO006\Desktop\Data\Noise_lofic\sensor_20/'
-    ROOT = r'D:\Data\2026_05\07\add_/'
+    # ROOT = r'D:\Data\2026_05\07\add_/'
+    # ROOT = r"D:\Data\2026_05\09\V3_imx06c_20260509/"    
+    # ROOT = r"D:\Data\2026_05\12\V3_imx06c_20260512/"
+    # ROOT = r"D:\Data\2026_05\20\V3_imx06c_gen_meta_20260520/"
+    # ROOT = r"D:\Data\2026_05\22\blc_raw/"
+    ROOT = r"D:\Data\2026_06\04\V3_imx06c_20260604/"
+
     RECEIVED = ROOT + 'received/'
     UNPACK_RAW = ROOT + 'unpack_raw/'
     YAML_OUTPUT = ROOT + 'yamls_eachFrame/'
@@ -119,7 +125,8 @@ def main():
     BAYER_PATTERN = 'RGGB'
     WIDTH = 4096
     HEIGHT = 3072
-    WP = 16383
+    WP = 1023
+    # WP = 16383
     BP = 64
     
     os.makedirs(YAML_OUTPUT, exist_ok=True)

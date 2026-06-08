@@ -6,7 +6,8 @@ import cv2, yaml, glob, os, sys, numpy as np
 #     with open(ROOT_PATH, 'r') as file:
 #         ROOT = file.readline().strip()
 # except:
-ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
+# ROOT = r"D:\Data\DJI_OV50X\20260423\50X_Night_lofic_0422-2026-04-23/"
+ROOT = r"D:\Data\DJI_OV50X\20260513\0511_ov50x_raw-2026-05-13\20260513_material/"
 
 UNPACK_RAW = os.path.join(ROOT, 'unpack_raw')
 YAML_DATA = os.path.join(ROOT, 'yamls_eachFrame')
@@ -173,6 +174,7 @@ for scene in scenes:
         
         output_path = os.path.join(scene_output_dir, os.path.basename(file).replace('.raw', f'.{OUTPUT_TYPE}'))
         cv2.imwrite(output_path, img)
+        print(output_path)
 
 print(f"\n{'='*60}")
 print("全部场景处理完成")

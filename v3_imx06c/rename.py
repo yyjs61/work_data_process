@@ -2,7 +2,12 @@ import os
 import glob
 import natsort
 # ROOT = '/home/user/afs_data/0327_wide_ov52a_dagquad_testdata/unpack_raw/'
-ROOT = r'D:\Data\2026_05\07\add_\unpack_raw/'
+# ROOT = r'D:\Data\2026_05\07\add_\unpack_raw/'
+# ROOT = r"D:\Data\2026_05\09\V3_imx06c_20260509/unpack_raw/"
+# ROOT = r"D:\Data\2026_05\12\V3_imx06c_20260512/unpack_raw/"
+# ROOT = r"D:\Data\2026_05\20\V3_imx06c_gen_meta_20260520/unpack_raw/"
+# ROOT = r"D:\Data\2026_05\20\V3_imx06c_20260520/unpack_raw/"
+ROOT = r"D:\Data\2026_06\04\V3_imx06c_20260604/unpack_raw/"
 
 # 获取当前场景文件夹列表并排序
 scenes = natsort.natsorted(os.listdir(ROOT))
@@ -19,12 +24,13 @@ for idx, scene_name in enumerate(scenes):
     print(f"{old_path} -> {new_path}")
 
 
-import os
-import glob
-import natsort
+# import os
+# import glob
+# import natsort
 
-# ROOT = "/home/user/afs_data/wang/0330_hnr_tele_hp3_quad_artifactTestData/unpack_raw"
-ROOT = r'D:\Data\2026_05\07\add_\unpack_raw/'
+# # ROOT = "/home/user/afs_data/wang/0330_hnr_tele_hp3_quad_artifactTestData/unpack_raw"
+# # ROOT = r'D:\Data\2026_05\07\add_\unpack_raw/'
+# ROOT = r"D:\Data\2026_05\09\V3_imx06c_20260509/unpack_raw/"
 
 scenes = natsort.natsorted(os.listdir(ROOT))
 
