@@ -13,7 +13,8 @@ import glob, os, numpy as np
 # ROOT = r'D:\Data\2026_06\09\V3_imx01f_EVT2p3_sensor_raw_20260609/'
 # ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609/'
 # ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
-ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601\HY_IMX06A_20260611/"
+# ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601\HY_IMX06A_20260611/"
+ROOT = r"D:\Data\2026_06\13\030_4K60_2x_scg_self_testing_20260612/"
 
 if ROOT[-1] == '/':
   DATASET_NAME = os.path.basename(ROOT[:-1])
@@ -39,8 +40,8 @@ if LUSTER_ROOT[-1] == '/':
 
 # s3 = 's3://isp_projectdata/VideoSupernightData/8xx'
 # s3 = 's3://isp_projectdata/VideoSupernightData/IAC4'
-# s3 = 's3://isp_projectdata/VideoSupernightData/030'
-s3 = 's3://isp_projectdata/VideoSupernightData/HY_IMX06A'
+s3 = 's3://isp_projectdata/VideoSupernightData/030'
+# s3 = 's3://isp_projectdata/VideoSupernightData/HY_IMX06A'
 # s3 = 's3://isp_projectdata/VideoSupernightData/A210/OV50X/Quad'
 # s3 = 's3://isp_projectdata/VideoSupernightData/A500_Benchmark/fusioncore'
 # s3 = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X'

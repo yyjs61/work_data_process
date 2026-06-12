@@ -42,7 +42,8 @@ import glob
 # ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
 # ROOT = r"D:\Data\2026_06\10\ainr_MCC_BLC/"
 # ROOT = r"D:\Data\2026_06\10\SC532_SCG_10bit_ISP_simulation_demo_raw_20260610/"
-ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601/"
+# ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601/"
+ROOT = r"D:\Data\2026_06\13\030_4K60_2x_scg_self_testing_20260612/"
 
 # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408"
 
