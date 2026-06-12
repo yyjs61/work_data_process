@@ -12,7 +12,9 @@ import natsort
 # ROOT = r'D:\Data\2026_05\25\IAC4_IMX01F_DCG_ER4_Wide_20260525/'
 # ROOT = r'D:\Data\2026_06\03\IAC4_IMX01F_DCG_ER4_Wide_20260603/'
 # ROOT = r'D:\Data\2026_06\09\iac4\IAC4_IMX01F_DCG_ER4_ULtralWide_out_20260609/'
-ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609/'
+# ROOT = r'D:\Data\2026_06\09\iac4\IAC4_IMX01F_DCG_ER4_Wide_out_20260609/'
+ROOT = r'D:\Data\2026_06\09\V3_imx01f_20260609/'
+
 RECEIVED = os.path.join(ROOT, 'received')
 UNPACK_RAW = os.path.join(ROOT, 'unpack_raw')
 
@@ -21,8 +23,8 @@ UNPACK_RAW = os.path.join(ROOT, 'unpack_raw')
 
 EXAMPLE_META = '''
 Black_level: 64.0
-White_level: 4095.0
-height: 3600.0
+White_level: 16383.0
+height: 3584.0
 width: 4096.0
 ccm_matrix: [[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]
 bayer_pattern: RGGB

@@ -13,11 +13,11 @@ logging.basicConfig(
 
 # ================= 配置区 =================
 # BASE_DIR = r"D:\Data\2026_06\01\IMX06C_binning_normal_4k_20260514\output_beforeDRC_bayer"
-BASE_DIR = r"D:\Data\2026_06\04\output_beforeDRC_bayer"
+BASE_DIR = r"D:\Data\2026_06\10\output_beforeDRC_bayer"
 # BASE_DIR = r"D:\Data\2026_06\01\IMX06C_binning_normal_4k_20260514\test"
 # 目标文件名格式：帧序号_场景名_自定义后缀.dat
 # 例如：000_scene00_800_noFace_raw_uint32_imx06c_binning.dat
-TARGET_SUFFIX = "rawpp_0604_uint32_imx06c_binning"
+TARGET_SUFFIX = "rawpp_0610_uint32_imx06c_binning"
 # ⚠️ 首次运行务必保持 True，仅打印映射关系不修改文件
 # DRY_RUN = True
 DRY_RUN = False

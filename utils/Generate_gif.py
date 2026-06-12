@@ -35,7 +35,15 @@ import glob
 # ROOT = r'D:\Data\2026_06\05\V210_OV50X_quad_night_20260519/'
 # ROOT = r"D:\Data\2026_06\05\030_1x_dcg_sensor_raw_ev0_ev+_ev+2_3000k_20260605/"
 # ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
-ROOT = r"D:\Data\2026_06\08\Honor_FPRO_TELE_QUAD_20260608_ER1/"
+# ROOT = r"D:\Data\2026_06\08\Honor_FPRO_TELE_QUAD_20260608_ER1/"
+# ROOT = r'D:\Data\2026_06\09\iac4\IAC4_IMX01F_DCG_ER4_Wide_out_20260609/'
+# ROOT = r'D:\Data\2026_06\09\V3_imx01f_20260609/'
+# ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609/'
+# ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
+# ROOT = r"D:\Data\2026_06\10\ainr_MCC_BLC/"
+# ROOT = r"D:\Data\2026_06\10\SC532_SCG_10bit_ISP_simulation_demo_raw_20260610/"
+ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601/"
+
 # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408"
 
 JPG_ROOT = os.path.join(ROOT, "jpg")

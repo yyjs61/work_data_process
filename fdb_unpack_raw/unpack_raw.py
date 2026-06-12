@@ -59,7 +59,8 @@ def run_unpacker(exe_path, cfg_path):
 
 def process_all_scenes():
     # ================= 配置区 =================
-    BASE_ROOT = r"D:\Data\2026_05\22\blc_raw"
+    # BASE_ROOT = r"D:\Data\2026_05\22\blc_raw"
+    BASE_ROOT = r"D:\Data\2026_06\09\V3_imx01f_EVT2p3_sensor_raw_20260609"
     RECEIVED_ROOT = os.path.join(BASE_ROOT, 'received')
     UNPACK_RAW_ROOT = os.path.join(BASE_ROOT, 'unpack_raw')
     
@@ -69,7 +70,8 @@ def process_all_scenes():
     EXE_PATH = os.path.join(FDB_ROOT, 'win', 'fbd_INTERNAL_USE.exe')
     
     # 目标文件大小 (22,020,096 字节)
-    TARGET_FILE_SIZE = 22020096
+    # TARGET_FILE_SIZE = 22020096
+    TARGET_FILE_SIZE = 25690112
     
     # ==========================================
     

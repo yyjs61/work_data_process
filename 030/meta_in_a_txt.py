@@ -6,7 +6,9 @@ import natsort
 
 # --- 配置参数 ---
 # ROOT = r"D:\Data\2026_06\04\030_4k60_quad_scg_outside_20260604"
-ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605"
+# ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605"
+ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
+
 RECEIVED = os.path.join(ROOT, "received")
 UNPACK_RAW = os.path.join(ROOT, "unpack_raw")
 YAML_ROOT = os.path.join(ROOT, "yamls_eachFrame")

@@ -31,18 +31,19 @@ def process_all_scenes():
     # ================= 配置区 =================
     # BASE_ROOT = '/home/user/afs_data/202605/22/F_CAPCRQO_HEX_20260522'
     # BASE_ROOT = r'D:\Data\2026_05\22\IAC4_IMX01F_DCG_ER4_UltralWide_20260522'
-    BASE_ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609'
+    # BASE_ROOT = r'D:\Data\2026_06\09\iac4\IAC4_IMX01F_DCG_ER4_Wide_out_20260609'
+    BASE_ROOT = r'D:\Data\2026_06\08\V3_imx01f_20260609'
 
     RECEIVED_ROOT = os.path.join(BASE_ROOT, 'received')
     UNPACK_RAW_ROOT = os.path.join(BASE_ROOT, 'unpack_raw')
     
     # 解包参数 (可根据实际Sensor规格或从meta/txt中动态解析修改)
     PARAMS = {
-        'height': 3600,
+        'height': 3584,
         'width': 4096,
-        'stride': 6144,
-        'in_bit': 12,        # RAWMIPI10 输入为10bit
-        'out_bit': 12        
+        'stride': 7168,
+        'in_bit': 14,        # RAWMIPI10 输入为10bit
+        'out_bit': 14        
     }
     # ==========================================
     

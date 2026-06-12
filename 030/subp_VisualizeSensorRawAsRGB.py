@@ -10,7 +10,8 @@ import cv2, yaml, glob, os, sys, numpy as np
 # ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
 # ROOT = r'D:\Data\2026_06\05\V210_OV50X_quad_night_20260519/'
 # ROOT = r"D:\Data\2026_06\05\030_1x_dcg_sensor_raw_ev0_ev+_ev+2_3000k_20260605/"
-ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
+# ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
+ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
 
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
@@ -28,10 +29,10 @@ BAYER_PATTERN = 'BGGR'
 # WP = 16383
 # BP = 1024
 
-# WP = 1023
+WP = 1023
 BP = 64
 
-WP = 16383
+# WP = 16383
 # BP = 64
 
 

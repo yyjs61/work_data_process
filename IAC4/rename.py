@@ -4,7 +4,7 @@ import natsort
 # ROOT = '/home/user/afs_data/0327_wide_ov52a_dagquad_testdata/unpack_raw/'
 # ROOT = '/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/unpack_raw/'
 # ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_portrait/unpack_raw/"
-ROOT = r'D:\Data\2026_06\07\IAC4_IMX01F_DCG_ER4_Wide_move_20260608/' + 'unpack_raw/'
+ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609/' + 'unpack_raw/'
 
 # 注意下面 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

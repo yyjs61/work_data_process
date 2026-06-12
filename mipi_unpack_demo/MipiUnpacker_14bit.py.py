@@ -25,7 +25,7 @@ def rawPreprocess(height, width, stride, in_pack_bit_depth, out_unpack_bit_depth
 
 if __name__ == '__main__':
 
-    height = 2304
+    height = 3584
     width = 4096
     stride = 7168
     in_pack_bit_depth = 14

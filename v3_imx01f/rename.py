@@ -4,8 +4,9 @@ import natsort
 # ROOT = '/home/user/afs_data/0327_wide_ov52a_dagquad_testdata/unpack_raw/'
 # ROOT = '/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/unpack_raw/'
 # ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_portrait/unpack_raw/"
-# ROOT = r'D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/' 
-ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601/"
+# ROOT = r'D:\Data\2026_05\25\IAC4_IMX01F_DCG_ER4_Wide_night_20260525/' + 'unpack_raw/'
+# ROOT = r"D:\Data\2026_05\26\0525_wide_ov52a_dagquad_texture_testdata2/"
+ROOT = r'D:\Data\2026_06\09\V3_imx01f_20260609/'
 
 ROOT += 'unpack_raw/'
 
@@ -24,6 +25,13 @@ for idx, scene_name in enumerate(scenes):
     new_path = os.path.join(ROOT, new_name)
     os.rename(old_path, new_path)
     print(f"{old_path} -> {new_path}")
+
+# import os
+# import glob
+# import natsort
+
+# # ROOT = "/home/user/afs_data/LeeSin_Xie/quadraw_for_yw_20260408/unpack_raw"
+# ROOT = r"D:\Data\DJI_OV50X\20260420\20260417_portrait/unpack_raw/"
 
 scenes = natsort.natsorted(os.listdir(ROOT))
 

@@ -4,40 +4,41 @@ import cv2, yaml, glob, os, sys, numpy as np
 # ROOT_PATH = './ROOT_PATH.txt'
 # with open(ROOT_PATH,'r') as file:
 #     ROOT = file.readline().strip()
-# ROOT = '/data/030_CALI_9_16_0326/'
-# ROOT = '/home/user/afs_data/LeeSin_Xie/data/RatingData/'
-# ROOT = r'D:\Data\2026_05\08\D-gain_calibration_data/'
-# ROOT = r"D:\Data\2026_06\08\Honor_FPRO_TELE_QUAD_20260608_ER1/"
-# ROOT = r"D:\Data\2026_06\10\ainr_MCC_BLC/"
-ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601\HY_IMX06A_20260611/"
+# ROOT = '/data/030_Test_0327_for16-9_20260327/'
+# ROOT = r"D:\Data\2026_05\13\030_dcg_lab_20260508/"
+# ROOT = r'D:\Data\2026_06\04\030_4k60_quad_scg_outside_20260604/'
+# ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
+# ROOT = r'D:\Data\2026_06\05\V210_OV50X_quad_night_20260519/'
+# ROOT = r"D:\Data\2026_06\05\030_1x_dcg_sensor_raw_ev0_ev+_ev+2_3000k_20260605/"
+# ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
+# ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
+ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601/"
 
-# UNPACK_RAW = ROOT + 'BlackLevel/'
-UNPACK_RAW = ROOT + 'NoiseProfile/'
-# YAML_DATA = ROOT + 'yamls_eachFrame/'
+UNPACK_RAW = ROOT + 'unpack_raw/'
+YAML_DATA = ROOT + 'yamls_eachFrame/'
 
-# W = 3840
-# H = 2160
-# W = 4080
-# H = 2592
-# W = 4096
-# H = 2304
 
-W = 3840
 H = 2160
-# BAYER_PATTERN = 'BGGR'
+W = 3840
+
+# H = 2160
+# W = 3840
+
 BAYER_PATTERN = 'RGGB'
 
 
 # WP = 16383
 # BP = 1024
 
-# WP = 1024
+# WP = 1023
 # BP = 64
+
+# WP = 16383
+# BP = 64
+
 
 WP = 4095
 BP = 256
-# BP = 200
-
 
 OUTPUT_DIR = 'jpg'
 OUTPUT_TYPE = 'jpg'
@@ -113,95 +114,54 @@ def CHW2RGB(CHW):
         return np.stack([b, g, r], axis=-1)
 
 
-
 # scenes = sorted(os.listdir(UNPACK_RAW))
 # for scene in scenes:
-# scene = sys.argv[1]
-# os.makedirs(os.path.join(os.path.join(ROOT, OUTPUT_DIR), scene), exist_ok=True)
-# for index, file in enumerate(sorted(glob.glob(os.path.join(UNPACK_RAW, scene, '*.raw')))):
-#     img = np.fromfile(file, dtype='uint16').reshape([H, W]).astype('float')
-#     # img = QuadBayer2CHW(img)
-#     # img = HEX2CHW(img)
-#     # img = CHW2RGB(img)
-#     img = (img - BP) / (WP - BP)
-#     img = img.clip(0, 1)
-#     # img = awb(img)
-#     img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
-#     img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
-
-#     # yaml_path = os.path.join(YAML_DATA,scene,str(index).zfill(3) + '.yaml')  
-#     # with open(yaml_path,'r',encoding='utf-8') as file_yaml:
-#     #     yaml_content = yaml.safe_load(file_yaml)
-#     # awb_b_gain = yaml_content['b_gain']
-#     # awb_r_gain = yaml_content['r_gain']
-#     awb_b_gain = 2.1173
-#     awb_r_gain = 2.113
-#     img[..., 0] *= awb_b_gain
-#     img[..., 2] *= awb_r_gain
-#     # img *= yaml_content['isp_gain']
-#     img *= 1.0
-#     img = img ** (1 / GAMMA)
-#     img = (img.clip(0, 1) * 255).astype('uint8')
-
-
 scene = sys.argv[1]
 os.makedirs(os.path.join(os.path.join(ROOT, OUTPUT_DIR), scene), exist_ok=True)
 for index, file in enumerate(sorted(glob.glob(os.path.join(UNPACK_RAW, scene, '*.raw')))):
     img = np.fromfile(file, dtype='uint16').reshape([H, W]).astype('float')
 
-    # quad
-    img = QuadBayer2CHW(img)
-    # # img = HEX2CHW(img)    
-    img = CHW2RGB(img)
+    # img = QuadBayer2CHW(img)
+    # img = HEX2CHW(img)
+    # img = CHW2RGB(img)
 
     img = (img - BP) / (WP - BP)
     img = img.clip(0, 1)
     # img = awb(img)
+    
+    img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
+    img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
 
-    # normal
-    # img = (img.clip(0, 1) * 65535).astype('uint16')  # Here 65535 is for demosaic, not related to raw image bit depth
-    # img = cv2.demosaicing(img, DEMOSAIC_DICT[BAYER_PATTERN]).astype('float') / 65535
-
-        # yaml_path = os.path.join(YAML_DATA,scene,str(index).zfill(3) + '.yaml')  
-        # with open(yaml_path,'r',encoding='utf-8') as file_yaml:
-        #     yaml_content = yaml.safe_load(file_yaml)
-        # awb_b_gain = yaml_content['b_gain']
-        # awb_r_gain = yaml_content['r_gain']
-        # awb_b_gain = 2.1173
-        # awb_r_gain = 2.113
-        # img[..., 0] *= awb_b_gain
-        # img[..., 2] *= awb_r_gain
-        # # img *= yaml_content['isp_gain']
-        # img *= 1.0
-        # img = img ** (1 / GAMMA)
-        # img = (img.clip(0, 1) * 255).astype('uint8')
-        # out_dir = os.path.join(ROOT, OUTPUT_DIR, scene, out_scene)
-        # os.makedirs(out_dir, exist_ok=True)
-
-        # out_name = os.path.basename(file).replace('.raw', '.jpg')
-        # out_path = os.path.join(out_dir, out_name)
-
-        # success = cv2.imwrite(out_path, img)
-        # if not success:
-        #     print("Failed to write:", out_path)
-        # # cv2.imwrite(os.path.join(ROOT, OUTPUT_DIR, scene, out_scene, os.path.basename(file).replace('.raw', f'.{OUTPUT_TYPE}')), img)
-
-    # 灰度世界
-    eps = 1e-6
-    mean_r = img[..., 2].mean()
-    mean_g = img[..., 1].mean()
-    mean_b = img[..., 0].mean()
-
-    gray = (mean_r + mean_g + mean_b) / 3.0
-
-    gain_r = gray / (mean_r + eps)
-    gain_g = gray / (mean_g + eps)
-    gain_b = gray / (mean_b + eps)
-
-    img[..., 2] *= gain_r
-    img[..., 1] *= gain_g
-    img[..., 0] *= gain_b
-
+    yaml_path = os.path.join(YAML_DATA,scene,str(index).zfill(3) + '.yaml')  
+    with open(yaml_path,'r',encoding='utf-8') as file_yaml:
+        yaml_content = yaml.safe_load(file_yaml)
+    awb_b_gain = yaml_content['b_gain']
+    awb_r_gain = yaml_content['r_gain']
+    img[..., 0] *= awb_b_gain
+    img[..., 2] *= awb_r_gain
+    img *= yaml_content['isp_gain']
     img = img ** (1 / GAMMA)
     img = (img.clip(0, 1) * 255).astype('uint8')
+
+    # ===== Gray World AWB (inline) =====
+    # eps = 1e-6
+    # mean_r = img[..., 2].mean()
+    # mean_g = img[..., 1].mean()
+    # mean_b = img[..., 0].mean()
+
+    # gray = (mean_r + mean_g + mean_b) / 3.0
+
+    # gain_r = gray / (mean_r + eps)
+    # gain_g = gray / (mean_g + eps)
+    # gain_b = gray / (mean_b + eps)
+
+    # img[..., 2] *= gain_r
+    # img[..., 1] *= gain_g
+    # img[..., 0] *= gain_b
+
+    # img = img ** (1 / GAMMA)
+    # img = (img.clip(0, 1) * 255).astype('uint8')
     cv2.imwrite(os.path.join(ROOT, OUTPUT_DIR, scene, os.path.basename(file).replace('.raw', f'.{OUTPUT_TYPE}')), img)
+
+
+

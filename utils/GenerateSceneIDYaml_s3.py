@@ -9,7 +9,11 @@ import glob, os, numpy as np
 # ROOT = r'D:\Data\2026_06\04\030_4k60_quad_scg_outside_20260604/'
 # ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
 # ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
-ROOT = r'D:\Data\2026_06\07\IAC4_IMX01F_DCG_ER4_Wide_lab_20260608/'
+# ROOT = r'D:\Data\2026_06\07\IAC4_IMX01F_DCG_ER4_Wide_lab_20260608/'
+# ROOT = r'D:\Data\2026_06\09\V3_imx01f_EVT2p3_sensor_raw_20260609/'
+# ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609/'
+# ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
+ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601\HY_IMX06A_20260611/"
 
 if ROOT[-1] == '/':
   DATASET_NAME = os.path.basename(ROOT[:-1])
@@ -34,8 +38,9 @@ if LUSTER_ROOT[-1] == '/':
     LUSTER_ROOT = LUSTER_ROOT[:-1]
 
 # s3 = 's3://isp_projectdata/VideoSupernightData/8xx'
-s3 = 's3://isp_projectdata/VideoSupernightData/IAC4'
+# s3 = 's3://isp_projectdata/VideoSupernightData/IAC4'
 # s3 = 's3://isp_projectdata/VideoSupernightData/030'
+s3 = 's3://isp_projectdata/VideoSupernightData/HY_IMX06A'
 # s3 = 's3://isp_projectdata/VideoSupernightData/A210/OV50X/Quad'
 # s3 = 's3://isp_projectdata/VideoSupernightData/A500_Benchmark/fusioncore'
 # s3 = 's3://isp_projectdata/VideoSupernightData/DJI_OV50X'

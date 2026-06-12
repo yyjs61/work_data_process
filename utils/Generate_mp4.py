@@ -26,7 +26,11 @@ import glob
 # ROOT = r'D:\Data\2026_06\04\030_4k60_quad_scg_outside_20260604/'
 # ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
 # ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
-ROOT = r'D:\Data\2026_06\07\IAC4_IMX01F_DCG_ER4_Wide_move_20260608/'
+# ROOT = r'D:\Data\2026_06\09\iac4\IAC4_IMX01F_DCG_ER4_Wide_out_20260609/'
+# ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609/'
+# ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
+ROOT = r"D:\Data\2026_06\11\HY_IMX06A_20260601\HY_IMX06A_20260611/"
+
 JPG_ROOT = os.path.join(ROOT, "jpg")
 MP4_ROOT = os.path.join(ROOT, "mp4")
 

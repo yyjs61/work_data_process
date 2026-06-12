@@ -6,9 +6,6 @@ import natsort
 
 # --- 配置参数 ---
 # ROOT = "/data/030_raw_contrast_20260508"
-# ROOT = r"D:\Data\2026_05\13\030_dcg_lab_20260508/"
-# ROOT = r"D:\Data\2026_06\01\wb_stats_0529/"
-ROOT = r"D:\Data\2026_06\05\030_1x_dcg_sensor_raw_ev0_ev+_ev+2_3000k_20260605/"
 ROOT = r"D:\Data\2026_06\05\030_2x_4k30_quad_dcg_day_20260605/"
 
 RECEIVED = os.path.join(ROOT, "received")

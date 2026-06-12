@@ -13,7 +13,9 @@ import subprocess, os, time
 # ROOT = r'D:\Data\2026_05\25\IAC4_IMX01F_DCG_ER4_Wide_night_20260525/'
 # ROOT = r'D:\Data\2026_06\IAC4_IMX01F_DCG_ER4_Wide_Night_dumpraw_20260601/'
 # ROOT = r'D:\Data\2026_06\03\IAC4_IMX01F_DCG_ER4_Wide_20260603/'
-ROOT = r'D:\Data\2026_06\07\IAC4_IMX01F_DCG_ER4_Wide_move_20260608/'
+# ROOT = r'D:\Data\2026_06\09\iac4\IAC4_IMX01F_DCG_ER4_Wide_out_20260609/'
+ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609/'
+
 UNPACK_RAW = ROOT + 'unpack_raw'
 scenes = sorted(os.listdir(UNPACK_RAW))
 

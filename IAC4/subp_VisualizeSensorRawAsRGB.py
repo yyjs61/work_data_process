@@ -13,12 +13,15 @@ import cv2, yaml, glob, os, sys, numpy as np
 # ROOT = r'D:\Data\2026_05\25\IAC4_IMX01F_DCG_ER4_Wide_night_20260525/'
 # ROOT = r'D:\Data\2026_06\IAC4_IMX01F_DCG_ER4_Wide_Night_dumpraw_20260601/'
 # ROOT = r'D:\Data\2026_06\03\IAC4_IMX01F_DCG_ER4_Wide_20260603/'
-ROOT = r'D:\Data\2026_06\07\IAC4_IMX01F_DCG_ER4_Wide_move_20260608/'
+# ROOT = r'D:\Data\2026_06\09\iac4\IAC4_IMX01F_DCG_ER4_Wide_out_20260609/'
+ROOT = r'D:\Data\2026_06\09\IAC4_IMX01F_DCG_ER4_Wide_lab_20260609/'
+
 UNPACK_RAW = ROOT + 'unpack_raw/'
 YAML_DATA = ROOT + 'yamls_eachFrame/'
 
 
 H = 3600
+# H = 3584
 W = 4096
 # H = 3584
 
@@ -29,6 +32,7 @@ BAYER_PATTERN = 'RGGB'
 BP = 64
 
 WP = 4095
+# WP = 16383
 # BP = 256
 
 OUTPUT_DIR = 'jpg'

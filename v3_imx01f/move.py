@@ -1,20 +1,16 @@
 import os
 import numpy as np
 
-# ROOT = "/data/030_Test_0327_for16-9_20260327/"
-# ROOT = r"D:\Data\2026_05\13\030_dcg_lab_20260508/"
-# ROOT = r"D:\Data\2026_06\05\20260604_2x_4k60_raw\030_4k60_quad_scg_day_20260605/"
-# ROOT = r"D:\Data\2026_06\10\030_4k60_quad_scg_20260610/"
-ROOT = r"D:\Data\2026_06\10\ISP_simulation_demo_raw/"
-
-SRC_ROOT = os.path.join(ROOT, "received")
+# ROOT = "/data/0415_hnr_wide_ov52a_dcg_texture_testdata2/"
+# ROOT = r"D:\Data\2026_05\26\0525_wide_ov52a_dagquad_texture_testdata2/"
+ROOT = r'D:\Data\2026_06\08\V3_imx01f_20260609'
+SRC_ROOT = os.path.join(ROOT, "received_")
 DST_ROOT = os.path.join(ROOT, "unpack_raw")
 
-# 候选右移位数（常见：14bit -> 16bit padding）
 SHIFT_CANDIDATES = [6, 4, 2]
 
 
-def detect_shift_bits(arr, zero_ratio_thresh=0.999999):
+def detect_shift_bits(arr, zero_ratio_thresh=0.999):
 
     for shift in SHIFT_CANDIDATES:
         mask = (1 << shift) - 1
@@ -27,7 +23,7 @@ def detect_shift_bits(arr, zero_ratio_thresh=0.999999):
 
 os.makedirs(DST_ROOT, exist_ok=True)
 
-for scene in sorted(os.listdir(SRC_ROOT)):
+for i, scene in enumerate(sorted(os.listdir(SRC_ROOT))):
     src_scene_dir = os.path.join(SRC_ROOT, scene)
 
     dst_scene_dir = os.path.join(DST_ROOT, scene)
@@ -38,11 +34,9 @@ for scene in sorted(os.listdir(SRC_ROOT)):
             continue
         src_file = os.path.join(src_scene_dir, fname)
 
-        # 读取 raw（RawPlain16LSB14bit 一般是 uint16）
         data = np.fromfile(src_file, dtype=np.uint16)
 
         shift_bits = detect_shift_bits(data)
-        # shift_bits = 2
         if shift_bits > 0:
             print(f"[SHIFT] {scene}/{fname}  >> {shift_bits}")
             data = data >> shift_bits
